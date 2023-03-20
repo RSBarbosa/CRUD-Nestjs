@@ -1,18 +1,11 @@
 import { Injectable, NotFoundException, ConflictException, Param } from "@nestjs/common";
+import { IRepository } from "../../domain/repository/interface.repository";
 import { Livro } from "../../domain/entity/livro.entity";
 
 @Injectable( )
-export class LivroRepository{
-  private livros: Livro [] = [ ];
+export class LivroRepository implements IRepository{
+   livros: Livro [] = [ ];
 
-//     {
-//     id: 1, 
-//     titulo:  "GenteAnsiosa",
-//     autor: "Fredrik Backman",
-//     ano: 2021,
-//     edição: 1,
-//     editora: "Rocco"
-// }
 
   criar(livro: Livro): Livro  {
     const existeLivro = this.livros.find(livroBase => livroBase.id == livro.id);

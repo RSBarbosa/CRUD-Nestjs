@@ -3,8 +3,8 @@ import {Livro} from "./../entity/livro.entity"
 import { LivroRepository } from "../../adapter/repositoty/livro.repository";
 import{ v4 as uuidv4 } from 'uuid';
 
-@Injectable( )
-  export class LivroService {
+@Injectable( ) 
+export class LivroService {
     constructor (private readonly livroRepository: LivroRepository) {}
 
     generateIs( ): string{
@@ -48,4 +48,5 @@ import{ v4 as uuidv4 } from 'uuid';
      }
 
   }
+
 

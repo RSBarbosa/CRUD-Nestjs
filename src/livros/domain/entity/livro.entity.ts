@@ -1,29 +1,38 @@
-import { IsDefined, IsNumber, IsOptional, IsString } from "class-validator";
+import { IsDefined, IsNotEmpty, IsNumber, IsOptional, IsString, Matches, Max } from "class-validator";
 
 
 export class Livro {
 
-@IsOptional()
- 
+ @IsOptional()
   id: string;
 
+
+  @IsNotEmpty( )
   @IsDefined()
   @IsString()
+  @Matches(/^[^\s]+$/, { message: 'Não pode ser uma string vazia ou conter apenas espaços em branco' })
   titulo: string;
 
+
+  @IsNotEmpty( )
   @IsDefined()
   @IsString()
+  @Matches(/^[^\s]+$/, { message: 'Não pode ser uma string vazia ou conter apenas espaços em branco' })
   autor: string;
 
+  @IsNotEmpty( )
   @IsDefined()
   @IsNumber( )
+  @Max( new Date( ).getFullYear( ))
   ano: number;
 
-@IsOptional()
-@IsNumber( )
+  @IsNotEmpty( )
+  @IsOptional()
+  @IsNumber( )
   edicao: number
 
-  @IsDefined()
+  @IsNotEmpty( )
   @IsString()
+  @Matches(/^[^\s]+$/, { message: 'Não pode ser uma string vazia ou conter apenas espaços em branco' })
   editora: string
 }
