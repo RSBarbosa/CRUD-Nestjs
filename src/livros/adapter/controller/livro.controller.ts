@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, Param, Put, Delete,  ValidationPipe, UsePipes, HttpCode } from "@nestjs/common";
+import { Controller, Post, Body, Get, Param, Put, Delete,  ValidationPipe, UsePipes, HttpCode, HttpStatus } from "@nestjs/common";
 import { Livro } from "../../domain/entity/livro.entity";
 import { LivroService } from "../.././domain/service/livro.service";
 import { ApiBadRequestResponse, ApiBody, ApiCreatedResponse, ApiNoContentResponse, ApiNotFoundResponse, ApiOkResponse, ApiOperation, ApiTags} from '@nestjs/swagger'
@@ -15,7 +15,7 @@ export class LivroController {
 
 
   @Get( )
-  @HttpCode(200)
+    @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Pesquisa todos os livros'})
   @ApiOkResponse({ type: [LivroResponse], description: 'Os livros foram encontrados com sucesso' })
   @ApiNotFoundResponse({ type: ErrorResponse, description: 'Not Found' })

@@ -7,8 +7,13 @@ import { LivroService } from "./domain/service/livro.service";
 
 @Module({
   imports: [],
-  controllers:[LivroController],
-  providers: [ LivroService, LivroRepository ]
+  controllers: [LivroController],
+  providers: [LivroService,
+    {
+      provide: "ILivroRepository",
+      useClass: LivroRepository
+    }
+  ]
 })
 
-export class LivroModule{ }
+export class LivroModule { }

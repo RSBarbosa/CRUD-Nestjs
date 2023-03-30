@@ -1,9 +1,9 @@
 import { Injectable, NotFoundException, ConflictException, Param } from "@nestjs/common";
-import { IRepository } from "../../domain/repository/interface.repository";
+import { ILivroRepository } from "src/livros/domain/repository/i-livro.repository";
 import { Livro } from "../../domain/entity/livro.entity";
 
 @Injectable( )
-export class LivroRepository implements IRepository{
+export class LivroRepository implements ILivroRepository{
    livros: Livro [] = [ ];
 
 

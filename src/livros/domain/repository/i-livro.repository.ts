@@ -1,13 +1,15 @@
-export interface IRepository{
+import { Livro } from "../entity/livro.entity";
+
+export interface ILivroRepository{
 
 
-  criar(obj: Object): Object;
+  criar(livro: Livro): Livro;
 
-  buscarTodos( ): Object []; 
+  buscarTodos( ): Livro []; 
 
    buscarUm(id: string); 
 
-   atualizar(objAtualizado: Object): Object;
+   atualizar(objAtualizado: Livro): Livro;
    
    deletar(id: string): void;
 

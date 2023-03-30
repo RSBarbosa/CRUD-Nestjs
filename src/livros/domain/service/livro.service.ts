@@ -1,11 +1,13 @@
-import { BadRequestException, Injectable } from "@nestjs/common";
-import {Livro} from "./../entity/livro.entity"
-import { LivroRepository } from "../../adapter/repositoty/livro.repository";
-import{ v4 as uuidv4 } from 'uuid';
+import { BadRequestException, Inject, Injectable } from "@nestjs/common";
+import { v4 as uuidv4 } from 'uuid';
+import { ILivroRepository } from "../repository/i-livro.repository";
+import { Livro } from "./../entity/livro.entity";
 
 @Injectable( ) 
 export class LivroService {
-    constructor (private readonly livroRepository: LivroRepository) {}
+    constructor (
+      @Inject("ILivroRepository") private readonly livroRepository: ILivroRepository
+      ) {}
 
     generateIs( ): string{
       return uuidv4( );

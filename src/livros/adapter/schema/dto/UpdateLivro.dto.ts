@@ -14,7 +14,7 @@ export class UpdateLivroSchema extends PartialType(Livro) {
   ano: number;
     
   @ApiProperty({ example: 1 })
-    edição: number;
+    edicao: number;
 
   @ApiProperty({ example: 'Rocco' })
     editora: string;

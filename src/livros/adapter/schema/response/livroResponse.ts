@@ -14,7 +14,7 @@ export class LivroResponse {
   ano: number;
     
   @ApiProperty()
-    edição: number;
+    edicao: number;
 
   @ApiProperty()
     editora: string;
